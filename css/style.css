@@ -1,0 +1,551 @@
+/* start variables */
+:root {
+    --main-color: #10cab7;
+    --sec-color: #2c4755;
+}
+
+/* start global rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+}
+html{
+    /* to scroll when in click on item in nav bar smooth */
+    scroll-behavior: smooth;
+}
+.parent {
+    background-color: #eee;
+}
+
+/* (back-ground full screen , continer contain all the contan)*/
+.continer {
+    /* need in mobile varsine to have some space*/
+    padding-left: 15px;
+    padding-right: 15px;
+    /* to center */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*  */
+
+/* small */
+@media (min-width: 768px) {
+    .continer {
+        width: 750px;
+    }
+}
+
+/* medium */
+@media (min-width: 992px) {
+    .continer {
+        width: 970px;
+    }
+}
+
+/* large */
+@media (min-width: 1200px) {
+    .continer {
+        width: 1170px;
+    }
+}
+
+/* end global rules */
+/* start components */
+.special-heading {
+    color: #ebeceb;
+    font-size: 100px;
+    text-align: center;
+    font-weight: 800px;
+    letter-spacing: -3px;
+    margin: 0;
+}
+
+.special-heading+p {
+    margin: -30px 0 0;
+    font-size: 20px;
+    color: #797979;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .special-heading {
+        font-size: 60px;
+    }
+
+    .special-heading+p {
+        margin: -20px;
+    }
+}
+
+/* end components */
+
+
+/* Start header */
+.header {
+    padding: 20px;
+}
+
+/* to have space between logo and links */
+/* container that contain all these take display flex */
+.header .continer {
+    display: flex;
+    justify-content: space-between;
+    /* to be in center in the same line */
+    align-items: center;
+}
+
+.header .logo {
+    width: 60px;
+}
+
+/* will show when i hover on burger-icon */
+/* parent (links) need to be relative ----- ul will be absulte */
+.header .links {
+    position: relative;
+}
+
+.header .links .burger-icon {
+    width: 30px;
+    display: flex;
+    /* عشان تكون العناصر تحت بعض  */
+    flex-wrap: wrap;
+    /* to make icon start from left the end */
+    justify-content: flex-end;
+}
+
+.header .links .burger-icon span {
+    background-color: #333;
+    /* عشان يكونو تحت بعض و ميلزقوش في بعض */
+    margin-bottom: 5px;
+    height: 2px;
+}
+
+.header .links .burger-icon span:first-child {
+    width: 100%;
+}
+
+.header .links .burger-icon span:nth-child(2) {
+    width: 60%;
+    /*totransitionsmoothly*/transition: 0.3s;
+    -webkit-transition: 0.s;
+    -moz-transition: 0.s;
+    -ms-transition: 0.s;
+    -o-transition: 0.s;
+}
+
+.header .links .burger-icon span:last-child {
+    width: 100%;
+}
+
+/* make transtion on second span */
+.header .links:hover .burger-icon span:nth-child(2) {
+    width: 100%;
+}
+
+/* to make Arrow */
+.header .links ul::before {
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #eee transparent;
+    position: absolute;
+    right: 5px;
+    top: -19px;
+}
+
+/* postion absulote  */
+.header .links ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    /*عشان ميحصلش اسكرول ومتطلعش براالشاشة*/
+    right: 0px;
+    min-width: 200px;
+    /*tocalcthearrow*/
+    top: calc(100% + 15px);
+    background-color: #eee;
+    display: none;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    /* to show infornt of all element */
+    z-index: 1;
+}
+
+/* to show ul */
+.header .links:hover ul {
+    display: block;
+}
+
+.header .links ul li a {
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    color: #333;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+.header .links ul li a:hover {
+    /* transtions */
+    padding-left: 25px;
+}
+
+/* طبق كله ماعدا اخر عنصر */
+.header .links ul li:not(:last-child) a {
+    /* line between elemnts */
+    border-bottom: 1px solid #ddd;
+}
+
+/* end header */
+/*  ///////////////////// */
+/* start landing */
+.landing {
+    background-image: url(../images/photo2.jpg);
+    background-size: cover;
+    height: calc(100vh - 64px);
+    position: relative;
+}
+
+.landing .intro-text {
+    position: absolute;
+    /*tocenterall*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    text-align: center;
+    /* manage width in mobile */
+    width: 320px;
+    max-width: 100%;
+}
+
+.landing .intro-text h1 {
+    font-weight: bold;
+    font-size: 50px;
+    /* to use varible */
+    color: var(--main-color);
+}
+
+.landing .intro-text p {
+    font-size: 19px;
+    line-height: 1.8;
+    color: black;
+}
+
+/* end landing */
+/* /////////////////////// */
+
+/* start feature */
+.feature {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f6f6f6;
+}
+
+.feature .continer {
+    display: grid;
+    /* start from 300 and max is 1fr */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+
+}
+
+.feature .feat {
+    padding: 20px;
+    text-align: center;
+}
+
+.feature .feat i {
+    color: var(--main-color);
+    font-size: 30px;
+}
+
+.feature .feat h3 {
+    font-weight: 800px;
+    margin: 30px 0;
+}
+
+.feature .feat p {
+    line-height: 1.8;
+    color: #777;
+    font-size: 17px;
+}
+
+/* end feature */
+/* start service */
+.service {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.service .service-con {
+    display: grid;
+    /* start from 300 and max is 1fr */
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 30px;
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+.service .service-con .serv {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+@media(max-width : 767px) {
+    .service .service-con .serv {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service .service-con {
+        margin-left: 0px;
+    }
+}
+
+.service .service-con .serv i {
+    color: var(--main-color);
+    /* to deal in mobile height and wight */
+    flex-basis: 60px;
+}
+
+.service .service-con .serv .text {
+    flex: 1;
+}
+
+.service .service-con .serv .text h3 {
+    margin: 0 0 20px;
+}
+
+.service .service-con .serv .text p {
+    color: #777;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.service .service-con .image {
+    text-align: center;
+    position: relative;
+}
+
+.service .service-con .image ::before {
+    content: "";
+    background-color: var(--secondary-color);
+    width: 100px;
+    height: calc(100% + 100px);
+    top: -50px;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+@media(max-width: 1199px){
+    .img{
+        display: none;
+    }
+}
+@media(max-width : 991px){
+    .service .service-con{
+        margin-left: 50px;
+    }
+}   
+/* end services */
+/* start portfolo */
+.port{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f6f6f6;
+    
+}
+.port .por-con{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+    margin-top: 80px;
+    margin-left: 220px;
+}
+.port .por-con .card{
+    background-color: white;
+    
+}
+.port .por-con img{
+    max-width: 100%;
+}
+.port .por-con .card .info{
+    padding: 20px;
+}
+.port .por-con .card .info h3{
+    margin: 0;
+}
+.port .por-con .card .info p{
+    color:#777;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+@media(max-width : 1200px){
+    .port .por-con{
+        margin-left: 0px;
+    }
+}   
+
+/* end portdolio */
+
+/* start about */
+
+.about{
+    padding-top: 60px;
+    padding-bottom: 60px;    
+}
+.about .about-con{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+@media(max-width : 991px){
+    .about .about-con{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.about .about-con .image{
+    position: relative;
+    width: 250px;
+    height: 375px;
+}
+.about .about-con .image img{
+    max-width: 100%;
+}
+@media(max-width : 991px){
+    .about .about-con .image{
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 60px;
+    }
+}
+.about .about-con .image::before {
+    content: "";
+    position: absolute;
+    background-color: #ebeced;
+    width: 100px;
+    height: calc(100% + 80px);
+    top: -40px;
+    left: -20px;
+    z-index: -1;
+  }
+  .about .about-con .image::after {
+    top: -40px;
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    z-index: -1;
+    right: -150px;
+  }
+  @media(max-width : 991px){
+    .about .about-con .image::after , .about .about-con .image::before{
+       display: none;
+    }
+}
+
+.about .about-con .text{
+    flex-basis: calc(100% - 500px);
+}
+.about .about-con .text p:first-of-type{
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+.about .about-con .text hr{
+    width: 50%;
+    display: inline-block;
+    border-color: var(--main-color);
+}
+.about .about-con .text p:last-of-type{
+    line-height: 2;
+    color: #777;
+}
+.about{
+    margin-left: 200px;
+}
+@media(max-width : 990px){
+    .about {
+        margin-left: 0px;
+    }
+}
+
+/* end about */
+/* Start Contact */
+.contact {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f6f6f6;
+  }
+  .contact .info {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+  .contact .info .label {
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--sec-color);
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+  }
+  .contact .info .link {
+    display: block;
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--main-color);
+    text-decoration: none;
+  }
+  .contact .info .social {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  .contact .info .social i {
+    margin-left: 10px;
+    color: var(--sec-color);
+  }
+  @media (max-width: 767px) {
+    .contact .info .label,
+    .contact .info .link {
+      font-size: 25px;
+    }
+  }
+  /* End Contact */
+  /* Start Footer */
+  .footer {
+    background-color: var(--sec-color);
+    color: white;
+    padding: 30px 10px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .footer span {
+    font-weight: bold;
+    color: var(--main-color);
+  }
+  /* End Footer */
